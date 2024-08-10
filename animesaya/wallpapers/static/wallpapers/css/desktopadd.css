@@ -1,0 +1,129 @@
+/* Container styling */
+.capsule{
+    display: flex;
+    background-image: url('../images/ai-generated-8750176_1280.jpg');
+
+    background-size: cover;
+    background-color: rebeccapurple;
+    /* background-color: #efff08; */
+    /* justify-content: center; */
+    margin-top: 10vh;
+    /* margin-left: 5vh; */
+    align-items: center;
+    height: 100vh;
+    /* min-width: 1400px; */
+    /* width: 100vh; */
+}
+.register {
+    max-width: 600px;
+    border: 2px solid rgb(255, 255, 255);
+    width: 300px;
+    margin-left: 30px ;
+    margin-top: -115px;
+    padding: 20px;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    background: #646060e0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styling */
+h1 {
+    
+    text-align: center;
+    color: #ffffff;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+form p {
+    margin-bottom: 15px;
+    
+}
+
+label {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 30px;
+    display: block;
+}
+
+input[type="text"], 
+input[type="email"], 
+input[type="password"] {
+    
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px;
+    background-color: #050505;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #efff08;
+    color: black;
+}
+@media (max-width: 1200px) {
+    .register {
+        max-width: 600px;
+        margin-left: 30px;
+        margin-top: -115px
+       
+    }
+
+}
+
+@media (max-width: 992px) {
+    .capsule{
+        background-position: 40%;
+    }
+    .register {
+        max-width: 600px;
+        margin-left: 30px;
+        margin-top: -115px
+       
+    }
+}
+
+@media (max-width: 768px) {
+    .capsule{
+        background-position: 35%;
+    }
+    .register {
+        max-width: 600px;
+        margin-left: 30px;
+        margin-top: -115px
+       
+    }
+}
+
+
+@media (max-width: 576px) {
+    .register {
+        max-width: 300px;
+        /* margin-left: 30px; */
+        margin-top: 230px
+       
+    }
+    .capsule{
+        background-position: 60%;
+        height: 100vh;
+    }
+}
+

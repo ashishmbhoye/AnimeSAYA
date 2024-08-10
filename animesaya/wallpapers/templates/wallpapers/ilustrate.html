@@ -1,0 +1,53 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'wallpapers/css/ilustrate.css' %}">
+{% endblock css %}
+{% block content %}
+    <div class="ilucontainer">
+        {% if desktop %}
+            <div class="image-section">
+                <div class="image-wrapper">
+                    <img src="{{ desktop.img.url }}" alt="{{ desktop.name }}" class="main-image">
+                    <p class="image-name">Name: {{ desktop.name }}</p>
+                    <a href="{% url 'download_image' desktop.id 'desktop' %}" class="download-btn">Download Desktop Image</a>
+                </div>
+                <h3 style="color: white; margin-left: 50px;">More Desktop Images</h3>
+                <div class="random-images">
+                    <div class="image-gallery">
+                        {% for i in random_desk %}
+                        <div class="box_image">
+                            <h1 class="h1i">{{ i.name }}</h1>
+                            <a href="{% url 'illustrate' i.id i.type %}">
+                                <img src="{{ i.img.url }}" alt="Random Desktop Image" class="dgallery-image">
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="image-section">
+                <div class="image-wrapper">
+                    <img src="{{ mobile.img.url }}" alt="{{ mobile.name }}" class="main-imagemob">
+                    <p class="image-name">Name: {{ mobile.name }}</p>
+                    <a href="{% url 'download_image' mobile.id 'mobile' %}" class="download-btn">Download Mobile Image</a>
+                </div>
+                <h3 style="color: white; margin-left: 50px;">More Mobile Images</h3>
+                <div class="random-images">
+                    <div class="image-gallery">
+                        {% for i in random_mob %}
+                        <div class="box_image">
+                            <h1 class="h1i">{{ i.name }}</h1>
+                            <a href="{% url 'illustrate' i.id i.type %}">
+                                <img src="{{ i.img.url }}" alt="Random Mobile Image" class="mgallery-image">
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock content %}

@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+* {
+	font-family: 'Montserrat', sans-serif;
+}
+body {
+	background: #0a0f20;
+	min-height: 100vh;
+}
+.section-padding {
+	padding: 100px 0;
+}
+.carousel-item {
+	
+	height: 100vh;
+	min-height: 300px;
+}
+.carousel-caption {
+	bottom: 220px;
+	z-index: 2;
+}
+
+
+.carousel-inner:before {
+	
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	/* background: rgba(0, 0, 0, 0.7); */
+	z-index: 1;
+}
+.navbar .getstarted {
+	background: #106eea;
+	margin-left: 30px;
+	border-radius: 4px;
+	font-weight: 400;
+	color: #fff;
+	text-decoration: none;
+	padding: .5rem 1rem;
+	line-height: 2.3;
+}
+.navbar-nav a {
+	font-size: 15px;
+	text-transform: uppercase;
+	font-weight: 500;
+}
+.navbar-light .navbar-brand {
+	color: #000;
+	font-size: 25px;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+.navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
+	color: #000;
+}
+.navbar-light .navbar-nav .nav-link {
+	color: #000;
+}
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+	color: #000;
+}
+.w-100 {
+	height: 100vh;
+}
+.navbar-toggler {
+	padding: 1px 5px;
+	font-size: 18px;
+	line-height: 0.3;
+	background: #fff;
+}
+.portfolio .card {
+	box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.15);
+}
+.team .card {
+	box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.15);
+}
+.services .card-body i {
+	font-size: 50px;
+}
+.team .card-body i {
+	font-size: 20px;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	.carousel-caption {
+		bottom: 370px;
+	}
+	.carousel-caption p {
+		width: 100%;
+	}
+	.card {
+		margin-bottom: 30px;
+	}
+	.img-area img {
+		width: 100%;
+	}
+}
+@media only screen and (max-width: 767px) {
+	.navbar-nav {
+		text-align: center;
+	}
+	.carousel-caption {
+		bottom: 125px;
+	}
+	.carousel-caption h5 {
+		font-size: 17px;
+	}
+	.carousel-caption a {
+		padding: 10px 15px;
+		font-size: 15px;
+	}
+	.carousel-caption p {
+		width: 100%;
+		line-height: 1.6;
+		font-size: 12px;
+	}
+	.about-text {
+		padding-top: 50px;
+	}
+	.card {
+		margin-bottom: 30px;
+	}
+}
+
+
+
+
+
+#image-generator-top h1 {
+	color: #ffffffbb;
+	font-size: 1.6rem;
+	font-weight: 600;
+	letter-spacing: 2px;
+	line-height: 3rem;
+  }
+  #image-generator-top h1 strong { 
+	 -webkit-text-fill-color: transparent;
+	background: linear-gradient(141deg, #9c26d7, #1eb1db);
+	-webkit-background-clip: text;
+	background-clip: text;
+	 background-size: cover; 
+	 font-size: 5vh;
+	/* display: block;
+	font-weight: 900; 	
+	line-height: 50px;
+	margin-bottom: 10px;
+	text-transform: uppercase;  */
+  }
+  #image-generator-top p {
+	color: #ffffffbb;
+	font-size: 18px;
+	margin-top: 20px;
+	padding: 0 50px;
+  }
+  #image-generator-top .buttons {
+	gap: 30px;
+	justify-content: center;
+  }
+  #image-generator-top .button {
+	background: rgba(0, 0, 0, 0.22);
+	border: none;
+	border: 1px solid rgba(150, 92, 201, 0.342);
+	color: #ffffffcc;
+	font-size: 17px;
+	font-weight: 400;
+	height: 55px;
+	padding: 0 40px;
+  }
+  #image-generator-top .button img {
+	opacity: 0.8;
+  }
+  #image-generator-top .button:hover {
+	background: transparent;
+	box-shadow: 0 0 5px #ffffff77, -5px 0 20px rgba(255, 0, 255, 0.7),
+	  5px 0 20px rgba(0, 255, 255, 0.7);
+	color: #fff;
+  }
+  #image-generator-top .button:hover img {
+	opacity: 1;
+  }
+  .wrap {
+	margin: 0 auto;
+	max-width: 1920px;
+	position: relative;
+	width: 90%;
+  }
+  .wrap header {
+	height: 80px;
+  }
+  .header-wrap {
+	align-content: center;
+	display: flex;
+	height: 80px;
+	position: absolute;
+	width: 100%;
+	z-index: 23;
+  }
+
+  .wrap.nest {
+	display: flex;
+	flex-direction: row;
+	gap: 40px;
+  }
+  .wrap.nest.flip {
+	flex-direction: row-reverse;
+  }
+  .wrap.center {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+  }
+  .wrap.center p {
+	max-width: 800px;
+  }
+  #photo-editing-text {
+	margin: 0 auto;
+	/* max-width: 800px; */
+	text-align: center;
+	z-index: 3;
+  }
+
+.footer{
+	position: sticky;
+	top: 100%;
+}

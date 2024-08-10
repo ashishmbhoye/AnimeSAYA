@@ -1,0 +1,172 @@
+/* Ensure these styles are included in your base CSS file or in a <style> block */
+.ilucontainer {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.image-section {
+    margin-bottom: 40px;
+}
+
+.image-wrapper {
+    text-align: center;
+    margin-top: 70px;
+}
+
+.main-image {
+    max-width: 80%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.main-imagemob {
+    /* max-width: 80%; */
+    width: 55vh;
+    /* background-color: red; */
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.image-name {
+    font-size: 30px;
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+.random-images {
+    margin-top: 20px;
+}
+
+.image-gallery {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    overflow: hidden;
+    
+}
+
+.dgallery-image {
+    width: 350px;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+
+.mgallery-image {
+    width: 180px;
+    /* height: 300px; */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+.dgallery-image:hover {
+    transform: scale(1.05);
+}
+
+.mgallery-image:hover {
+    transform: scale(1.05);
+}
+
+.box_image{
+    width: auto;
+  
+}
+
+
+.box_image:hover .h1i{
+    opacity: 0.5;
+}
+
+.h1i{
+    position: absolute;
+    padding: 5px;
+    margin-top: 10px;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    opacity: 0;
+    background-color: rgb(10, 10, 10);
+    z-index: 10;
+    transition: 0.25 ease-in-out;
+}
+
+
+.h1i:hover{
+    opacity: 1;
+}
+/* .image:hover img{
+    background-color: red;
+    transform: scale(1.1);
+}
+.image:hover h1i{
+    opacity: 0.5;
+} */
+.download-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.download-btn:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+@media (max-width: 1200px) {
+    .dgallery-image{
+        width: 315px;
+    }
+    .main-image{
+        max-width: 95%;
+    }
+    .main-imagemob {
+        width: 55vh;
+    }
+}
+
+@media (max-width: 992px) {
+    .dgallery-image{
+        width: 290px;
+    }
+    .main-image{
+        max-width: 92%;
+    }
+    .main-imagemob {
+        width: 55vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .dgallery-image{
+        width: 275px;
+    }
+    .main-image{
+        max-width: 95%;
+    }
+    .main-imagemob {
+        width: 60vh;
+    }
+}
+
+@media (max-width: 576px) {
+    .dgallery-image{
+        width: 185px;
+    }
+    .main-image{
+        max-width: 95%;
+    }
+    .main-imagemob {
+        width: 40vh;
+    }
+}
