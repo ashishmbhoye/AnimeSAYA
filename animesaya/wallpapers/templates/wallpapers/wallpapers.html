@@ -1,33 +1,69 @@
 {% extends "core/base.html" %}
 {% load static %}
 {% block css %}
-{{block.super}}
-<link rel="stylesheet" href="{% static 'wallpapers/css/style.css' %}">
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'wallpapers/css/style.css' %}" />
 {% endblock css %}
+
 {% block content %}
 <section id="portfolio" class="portfolio section-padding">
+    <div class="searchbar">
+        <form class="d-flex" method="GET" action="{% url 'image_search_bar' %}" style="margin-left: 12.5%">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="image_query" style="width: 90%" value="{{image_query}}" />
+            <button class="btn btn-outline-primary my-2 my-sm-0 mr-5" type="submit" style="width: 9%">
+                Search
+            </button>
+        </form>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="section-header text-center pb-5">
-                    <h1 style="color: wheat ;"> Wallpapers  </h1>
+                    <h1 style="color: wheat">Wallpapers</h1>
                 </div>
             </div>
         </div>
         <div class="photo_gallery">
-    
-            {% for i in img %}
-            <div class="image">
-                <!-- <h1 class="h1i">{{i.name}}</h1> -->
-                <a href="{% url 'illustrate' i.id i.type %}">
-                    <img src={{i.img.url}} class="img-fluid" alt="">
-                </a>
-                
-            </div>
-            {% endfor %}
-      
+            {% if images_from_DB %}
+                {% for i in images_from_DB %}
+                    {% if i.id and i.type %}
+                        <div class="image">
+                            <p>ID: {{ i.id }}</p>
+                            {% comment %} <p>Type: {{ i.type }}</p> {% endcomment %}
+                            {% comment %} <p>Image URL: {{ i.img.url }}</p> {% endcomment %}
+                            <a href="{% url 'illustrate' i.id i.type %}">
+                                <img src="{{ i.img.url }}" class="img-fluid" alt="{{ i.name }}" />
+                            </a>
+                        </div>
+                    {% else %}
+                        <div class="image">
+                            <p>Image details missing</p>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% elif img %}
+                {% for i in img %}
+                    {% if i.id and i.type %}
+                        <div class="image">
+                            <p>ID: {{ i.id }}</p>
+                            {% comment %} <p>Type: {{ i.type }}</p> {% endcomment %}
+                            {% comment %} <p>Image URL: {{ i.img.url }}</p> {% endcomment %}
+                            <a href="{% url 'illustrate' i.id i.type %}">
+                                <img src="{{ i.img.url }}" class="img-fluid" alt="{{ i.name }}" />
+                            </a>
+                        </div>
+                    {% else %}
+                        <div class="image">
+                            <p>Image details missing</p>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                <div class="text-center">
+                    <p style="color: red;text-align: center;">No images found</p>
+                </div>
+            {% endif %}
+        </div>
     </div>
-    </div>
-  </section> 
-
+</section>
 {% endblock content %}

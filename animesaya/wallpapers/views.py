@@ -5,7 +5,7 @@ from django.shortcuts import redirect,get_object_or_404
 from django.http import HttpResponse, Http404
 from django.contrib.auth.decorators import login_required
 import random
-
+from django.db.models import Q
 # Create your views here.
 def wallpapers_list(request):
     data=desktop_images.objects.all()
@@ -19,7 +19,7 @@ def mobile_wallpapers(request):
     random.shuffle(image_list)
     return render(request,'wallpapers/mobile_wallpapers.html',{'img':image_list})
 
-# @login_required
+@login_required
 def add_desktop_images(request):
     if request.method == 'POST':
         form = form_desktop(request.POST, request.FILES)
@@ -41,7 +41,7 @@ def add_desktop_images(request):
     return render(request, 'wallpapers/desktop_add.html', {"form": form})
 
 
-# @login_required
+@login_required
 def add_mobile_images(request):
         if request.method == 'POST':
             form = form_mobile(request.POST, request.FILES)
@@ -106,3 +106,33 @@ def download_image(request, id, type):
     response = HttpResponse(image.img, content_type='image/jpeg') 
     response['Content-Disposition'] = f'attachment; filename="{image.name}.jpg"'
     return response
+
+
+
+def image_search_bar(request):
+    image_query = request.GET.get("image_query", "")
+    print(image_query)  # Debug print to show the query received
+
+    search_result = []
+    
+    if image_query:
+        # Get results from both desktop and mobile images using the query
+        desktop_search_results = desktop_images.objects.filter(name__icontains=image_query)
+        mobile_search_results = mobile_images.objects.filter(name__icontains=image_query)
+
+        # Combine the results into a single list
+        search_result = list(desktop_search_results) + list(mobile_search_results)
+        print("IMAGE SEARCH RESULT :", search_result)
+
+        # Ensure each image has an 'id' and 'type' field
+        for img in search_result:
+            img.id = getattr(img, 'id', None)
+            img.type = getattr(img, 'type', None)
+    
+    # Prepare the context with the combined results
+    context = {
+        "images_from_DB": search_result,
+        "image_query":image_query
+    }
+    
+    return render(request, "wallpapers/wallpapers.html", context)

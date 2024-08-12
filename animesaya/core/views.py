@@ -18,6 +18,7 @@ def home(request):
     page_obj = paginator.get_page(page_number)
     data = random.sample(desktop, 8)
     
+    # return render(request, 'core/home.html')
     return render(request, 'core/home.html', {'img': data, 'images': page_obj})
 
 def register(request):
