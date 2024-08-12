@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class desktop_images(models.Model):
-    name=models.CharField(max_length=50)
+    name=models.CharField(max_length=50,blank=True,null=True)
     img=models.ImageField(upload_to='wallpapers', height_field=None, width_field=None, max_length=None)
     type=models.CharField( max_length=50,default='desktop')
 
@@ -13,7 +13,7 @@ class desktop_images(models.Model):
         return self.name
     
 class mobile_images(models.Model):
-    name=models.CharField(max_length=50)
+    name=models.CharField(max_length=50,blank=True,null=True)
     img=models.ImageField(upload_to='wallpapers', height_field=None, width_field=None, max_length=None)
     type=models.CharField(max_length=50,default='mobile')
 
@@ -22,3 +22,6 @@ class mobile_images(models.Model):
 
     def __str__(self) -> str:
         return self.name
+    
+    
+    

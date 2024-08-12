@@ -90,3 +90,45 @@
     height: 25vh;
 }
 }
+
+
+.pagination-container {
+    text-align: center;
+    margin: 30px 0;
+  }
+  
+  .pagination {
+    display: inline-block;
+  }
+  
+  .page-link {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #333;
+    text-decoration: none;
+    background-color: #f8f9fa;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .page-link:hover {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .current-page {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 0 5px;
+    color: #333;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: #e9ecef;
+  }
+  
+  .page-link:active {
+    background-color: #0056b3;
+    color: white;
+  }

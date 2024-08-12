@@ -101,21 +101,38 @@
     <div class="row">
       <div class="col-md-12">
         <div class="section-header text-center pb-5">
-          <h1 style="color: wheat ;">Anime Wallpapers </h1>
+          <h1 style="color: wheat;">Anime Wallpapers</h1>
         </div>
       </div>
     </div>
     <div class="photo_gallery">
-
       {% for i in images %}
       <div class="image">
         <h1 class="h1i">{{i.name}}</h1>
         <a href="{% url 'illustrate' i.id i.type %}">
-          <img src={{i.img.url}} class="img-fluid" alt="">
+          <img src="{{ i.img.url }}" class="img-fluid" alt="">
         </a>
       </div>
       {% endfor %}
+    </div>
 
+    <!-- Pagination controls -->
+    <div class="pagination-container">
+      <div class="pagination">
+        {% if images.has_previous %}
+          <a href="?page=1" class="page-link">&laquo; First</a>
+          <a href="?page={{ images.previous_page_number }}" class="page-link">Previous</a>
+        {% endif %}
+
+        <span class="current-page">
+          Page {{ images.number }} of {{ images.paginator.num_pages }}
+        </span>
+
+        {% if images.has_next %}
+          <a href="?page={{ images.next_page_number }}" class="page-link">Next</a>
+          <a href="?page={{ images.paginator.num_pages }}" class="page-link">Last &raquo;</a>
+        {% endif %}
+      </div>
     </div>
   </div>
 </section>

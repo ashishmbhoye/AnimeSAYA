@@ -19,44 +19,56 @@ def mobile_wallpapers(request):
     random.shuffle(image_list)
     return render(request,'wallpapers/mobile_wallpapers.html',{'img':image_list})
 
-@login_required
+# @login_required
 def add_desktop_images(request):
-    form=form_desktop(request.POST, request.FILES)
-    context={
-        'form':form,
-        'msg':'Image Added Successfully'
-    }
-    print('thsi is desktop',form)
-    if form.is_valid():
-        form.save()
-        return render(request,'wallpapers/desktop_add.html',context)
-    context={
-        'form':form
-    }
-    return render(request,'wallpapers/desktop_add.html',context)
+    if request.method == 'POST':
+        form = form_desktop(request.POST, request.FILES)
+        if form.is_valid():
+            # name = form.cleaned_data['name']
+            images = request.FILES.getlist('img')
+            print("Images from form:",images)
+            for image in images:
+                print("IMAGE from for loop:",image)
+                print("IMAGE type from for loop:",type(str(image)))
+                image_name=str(image)
+                print("Image name :",image_name)
+                image_name_after_split=image_name.split(".")[0]
+                print("Image name after split :",image_name_after_split)
+                desktop_images.objects.create(name=image_name_after_split, img=image)
+            return redirect('wallpapers_list')
+    else:
+        form = form_desktop()
+    return render(request, 'wallpapers/desktop_add.html', {"form": form})
 
-@login_required
+
+# @login_required
 def add_mobile_images(request):
-    form=form_mobile(request.POST, request.FILES)
-    context={
-        'form':form,
-        'msg':'Image Added Successfully'
-    }
-    if form.is_valid():
-        form.save()
-        return render(request,'wallpapers/mob_add.html',context)
-        
-    context={
-        'form':form
-    }
-    return render(request,'wallpapers/mob_add.html',context)
+        if request.method == 'POST':
+            form = form_mobile(request.POST, request.FILES)
+            if form.is_valid():
+                # name = form.cleaned_data['name']
+                images = request.FILES.getlist('img')
+                print("Images from form:",images)
+                for image in images:
+                    print("IMAGE from for loop:",image)
+                    print("IMAGE type from for loop:",type(str(image)))
+                    image_name=str(image)
+                    print("Image name :",image_name)
+                    image_name_after_split=image_name.split(".")[0]
+                    print("Image name after split :",image_name_after_split)
+                    mobile_images.objects.create(name=image_name_after_split, img=image)
+                return redirect('mobile_images')
+        else:
+            form = form_mobile()
+        return render(request, 'wallpapers/mob_add.html', {"form": form})
 
 def wallpapers(request):
-    desktop=desktop_images.objects.all()
-    print(desktop)
+    # desktop=desktop_images.objects.all()
+    # print(desktop)
     desktop=list(desktop_images.objects.all())
-    print(desktop)
+    # print(desktop)
     mobile=list(mobile_images.objects.all())
+    print(mobile)
     images=desktop+mobile
     img_list=list(images)
     random.shuffle(img_list)
