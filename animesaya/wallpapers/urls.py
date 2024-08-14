@@ -8,6 +8,7 @@ from .views import (
     illustrate,
     download_image,
     image_search_bar,
+    mobile_search_bar,
 )
 
 urlpatterns = [
@@ -19,4 +20,5 @@ urlpatterns = [
     path('illustrate/<int:id>/<str:type>/', illustrate, name='illustrate'),
     path('download/<int:id>/<str:type>/', download_image, name='download_image'),
     path('image-search-bar/', image_search_bar, name='image_search_bar'),
+    path('mobile-search-bar/', mobile_search_bar, name='mobile_search_bar'),
 ]

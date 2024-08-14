@@ -136,3 +136,38 @@ def image_search_bar(request):
     }
     
     return render(request, "wallpapers/wallpapers.html", context)
+
+
+def mobile_search_bar(request):
+    mobile_image_query = request.GET.get("image_query", "")
+    print(mobile_image_query)  # Debug print to show the query received
+    
+    if mobile_image_query == "":
+        # mobile_imgs= mobile_images.objects.all()
+        return redirect("mobile_images")
+        # return render(request, "wallpapers/wallpapers.html", {"mobile_data":mobile_imgs})
+    else:
+
+        search_result = []
+        
+        if mobile_image_query:
+            # Get results from both desktop and mobile images using the query
+        
+            mobile_search_results = mobile_images.objects.filter(name__icontains=mobile_image_query)
+
+            # Combine the results into a single list
+            # mobile_search_result = mobile_search_results
+            print("IMAGE SEARCH RESULT :", mobile_search_results)
+
+            # Ensure each image has an 'id' and 'type' field
+            for img in mobile_search_results:
+                img.id = getattr(img, 'id', None)
+                img.type = getattr(img, 'type', None)
+        
+        # Prepare the context with the combined results
+        context = {
+            "mobile_images_from_DB": mobile_search_results,
+            "mobile_image_query":mobile_image_query
+        }
+        
+        return render(request, "wallpapers/mobile_wallpapers.html", context)
