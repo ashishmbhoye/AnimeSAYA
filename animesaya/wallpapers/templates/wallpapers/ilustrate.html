@@ -18,7 +18,7 @@
                     <div class="image-gallery">
                         {% for i in random_desk %}
                         <div class="box_image">
-                            <h1 class="h1i">{{ i.name }}</h1>
+                            <!--<h1 class="h1i">{{ i.name }}</h1>-->
                             <a href="{% url 'illustrate' i.id i.type %}">
                                 <img src="{{ i.img.url }}" alt="Random Desktop Image" class="dgallery-image">
                             </a>
@@ -39,7 +39,7 @@
                     <div class="image-gallery">
                         {% for i in random_mob %}
                         <div class="box_image">
-                            <h1 class="h1i">{{ i.name }}</h1>
+                            <!--<h1 class="h1i">{{ i.name }}</h1>-->
                             <a href="{% url 'illustrate' i.id i.type %}">
                                 <img src="{{ i.img.url }}" alt="Random Mobile Image" class="mgallery-image">
                             </a>

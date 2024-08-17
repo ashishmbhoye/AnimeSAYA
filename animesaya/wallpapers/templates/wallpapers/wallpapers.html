@@ -28,7 +28,7 @@
                 {% for i in images_from_DB %}
                     {% if i.id and i.type %}
                         <div class="image">
-                            <p>ID: {{ i.id }}</p>
+                             <p style="color: white;">{{ i.name }}</p>
                             {% comment %} <p>Type: {{ i.type }}</p> {% endcomment %}
                             {% comment %} <p>Image URL: {{ i.img.url }}</p> {% endcomment %}
                             <a href="{% url 'illustrate' i.id i.type %}">
@@ -45,7 +45,7 @@
                 {% for i in img %}
                     {% if i.id and i.type %}
                         <div class="image">
-                            <p>ID: {{ i.id }}</p>
+                            <p style="color: white;">{{ i.name }}</p>
                             {% comment %} <p>Type: {{ i.type }}</p> {% endcomment %}
                             {% comment %} <p>Image URL: {{ i.img.url }}</p> {% endcomment %}
                             <a href="{% url 'illustrate' i.id i.type %}">

@@ -1,25 +1,26 @@
 {% extends "core/base.html" %} {% load static %} {% block css %} {{block.super}}
-<link rel="stylesheet" href="{% static 'wallpapers/css/style.css' %}" /> {% endblock css %} {% block content %}
+<link rel="stylesheet" href="{% static 'wallpapers/css/style.css' %}" />
+{% endblock css %} {% block content %}
 <section id="portfolio" class="portfolio section-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-header text-center pb-5">
-                    <h1 style="color: wheat">Desktop Wallpapers</h1>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-header text-center pb-5">
+          <h1 style="color: wheat">Desktop Wallpapers</h1>
         </div>
-        <div class="photo_gallery">
-            {% for i in img %}
-            <div class="image">
-                <!-- <h1 class="h1i">{{i.name}}</h1> -->
-                <a href="{% url 'illustrate' i.id i.type %}">
-                    <img src="{{i.img.url}}" class="img-fluid" alt="" />
-                </a>
-            </div>
-            {% endfor %}
-        </div>
+      </div>
     </div>
+    <div class="photo_gallery">
+      {% for i in img %}
+      <div class="image">
+        <!-- <h1 class="h1i">{{i.name}}</h1> -->
+        <a href="{% url 'illustrate' i.id i.type %}">
+            <img src="{{i.img.url}}" class="img-fluid" alt="" />
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
 </section>
 
 {% endblock content %}
